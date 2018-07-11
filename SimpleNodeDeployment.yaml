@@ -1,0 +1,17 @@
+---
+ apiVersion: extensions/v1beta1
+ kind: Deployment
+ metadata:
+   name: simple-node
+ spec:
+   replicas: 2
+   template:
+     metadata:
+       labels:
+         app: web
+     spec:
+       containers:
+         - name: simple-node-app
+           image: gcr.io/loadbalancing-test-209200/simple-node-app:latest
+           ports:
+             - containerPort: 8080
